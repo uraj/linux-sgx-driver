@@ -309,6 +309,7 @@ static void sgx_evict_page(struct sgx_encl_page *entry,
 	sgx_free_page(entry->epc_page, encl);
 	entry->epc_page = NULL;
 	entry->flags &= ~SGX_ENCL_PAGE_RESERVED;
+	pr_info("sgx_swap: EV %lx", entry->addr);
 }
 
 static void sgx_write_pages(struct sgx_encl *encl, struct list_head *src)

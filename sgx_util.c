@@ -195,6 +195,8 @@ static int sgx_eldu(struct sgx_encl *encl,
 		ret = -EFAULT;
 	}
 
+	pr_info("sgx_swap: LD %lx", encl_page->addr);
+
 	kunmap_atomic((void *)(unsigned long)(pginfo.pcmd - pcmd_offset));
 	kunmap_atomic((void *)(unsigned long)pginfo.srcpge);
 	sgx_put_page(va_ptr);
